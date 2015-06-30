@@ -1,0 +1,27 @@
+{
+  "name": "jsxes6",
+  "version": "1.0.0",
+  "description": "Boilerplate to start development on ES6 and React",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jsx",
+    "react",
+    "es6"
+  ],
+  "author": "Jean-Pierre Sierens",
+  "license": "ISC",
+  "devDependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "gulp": "^3.9.0",
+    "gulp-util": "^3.0.6",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "react": "^0.13.3"
+  }
+}
