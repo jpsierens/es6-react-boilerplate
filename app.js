@@ -1,5 +1,4 @@
 /*
-*	FreeMarker Cheatsheet App
 *	Author: Jean-Pierre Sierens
 *	===========================================================================
 */
