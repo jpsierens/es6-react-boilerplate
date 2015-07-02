@@ -1,5 +1,5 @@
 /*
-*	Filterable Cheatsheet
+*	Searchable Table
 *	Author: Jean-Pierre Sierens
 *	===========================================================================
 */
