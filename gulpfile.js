@@ -11,7 +11,6 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var gutil = require('gulp-util');
 var babelify = require('babelify');
-var reactify = require('reactify');
 
 // External dependencies you do not want to rebundle while developing,
 // but include in your application deployment
