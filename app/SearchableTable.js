@@ -38,7 +38,7 @@ class SearchBar extends React.Component {
 		// passing filter data up by using a callback
         this.props.onUserInput(
         	// ref is like the id
-            this.refs.filterTextInput.getDOMNode().value
+            this.refs.filterTextInput.value
         );
     }
 	render(){
@@ -64,7 +64,7 @@ class Table extends React.Component {
 			if (product.name.indexOf(this.props.filterText) === -1) {
 				return;
 			}
-			sections.push(<Section data={product} />);
+			sections.push(<Section key={product.name} data={product} />);
 		}.bind(this))
 		return(
 			<div>{sections}</div>

@@ -16,27 +16,29 @@ var babelify = require('babelify');
 // but include in your application deployment
 var dependencies = [
 	'react',
-  	'react/addons'
+  	'react-dom'
 ];
 // keep a count of the times a task refires
 var scriptsCount = 0;
 
 // Gulp tasks
 // ----------------------------------------------------------------------------
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
     bundleApp(false);
 });
 
-gulp.task('deploy', function(){
+gulp.task('deploy', function (){
 	bundleApp(true);
+});
+
+gulp.task('watch', function () {
+	gulp.watch(['./app/*.js'], ['scripts']);
 });
 
 // When running 'gulp' on the terminal this task will fire.
 // It will start watching for changes in every .js file.
 // If there's a change, the task 'scripts' defined above will fire.
-gulp.task('default', function() {
-	gulp.watch(['./**/*.js','!./web/*.js'], ['scripts']);
-});
+gulp.task('default', ['scripts','watch']);
 
 // Private Functions
 // ----------------------------------------------------------------------------
@@ -45,13 +47,13 @@ function bundleApp(isProduction) {
 	// Browserify will bundle all our js files together in to one and will let
 	// us use modules in the front end.
 	var appBundler = browserify({
-    	entries: 'app.js',
+    	entries: './app/app.js',
     	debug: true
   	})
 
 	// If it's not for production, a separate vendors.js file will be created
-	// so that we don't have to rebundle things like react everytime there's a 
-	// change in the js file
+	// the first time gulp is run so that we don't have to rebundle things like
+	// react everytime there's a change in the js file
   	if (!isProduction && scriptsCount === 1){
   		// create vendors.js for dev environment.
   		browserify({
@@ -74,7 +76,7 @@ function bundleApp(isProduction) {
 
   	appBundler
   		// transform ES6 and JSX to ES5 with babelify
-	  	.transform(babelify)
+	  	.transform("babelify", {presets: ["es2015", "react"]})
 	    .bundle()
 	    .on('error',gutil.log)
 	    .pipe(source('bundle.js'))
