@@ -1,13 +1,14 @@
-## es6-react-boilerplate
+# es6-react-boilerplate
 
-To use, first download the repository,then do 
+## Install
 
 ```
 $ npm install
 ```
 
-on your terminal.
-After that, either navigate to the file in your browser, or start a http server like this
+## Run
+
+Either navigate to the file in your browser, or start a http server like the following and go to localhost:3000 to see the project.
 
 ```
 $ python -m SimpleHTTPServer 3000
@@ -18,5 +19,3 @@ To make changes, run gulp so it can compile them:
 ```
 $ gulp
 ```
-
-and go to localhost:3000 to see the project.
